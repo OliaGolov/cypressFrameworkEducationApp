@@ -2,7 +2,6 @@ describe('home page', () => {
 
     beforeEach(() => {
       cy.visit("http://localhost:3000")
-      cy.viewport(1920, 1080)
     })
 
   context('hero section', () => {
@@ -21,8 +20,7 @@ describe('home page', () => {
   context('Courses section', () => {
 
     it('Course: Testing Your First Next.js Application', () => {
-      cy.getByData("course-0").find('a').eq(3).click()
-      cy.location('pathname').should('eq', '/testing-your-first-application')
+      cy.getFirstCourse()
     })
 
     it('Course: Testing Foundations', () => {

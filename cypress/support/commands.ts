@@ -38,3 +38,8 @@
 Cypress.Commands.add('getByData', (selector) => {
     cy.get(`[data-test=${selector}]`)
 })
+
+Cypress.Commands.add('getFirstCourse', () => {
+    cy.getByData("course-0").find('a').eq(3).click()
+      cy.location('pathname').should('eq', '/testing-your-first-application')
+})
